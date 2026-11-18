@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo popup cây thông Noel</title>
+  <style>
+    :root {
+      --bg: #f5f6fa; --fg: #1c2230; --muted: #5b6475; --card: #ffffff; --line: #e3e6ee; --accent: #0f7a4a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      max-width: 960px; margin: 0 auto; padding: 20px 16px;
+    }
+    .logo { font-weight: 700; }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 15px; }
+    main { max-width: 960px; margin: 0 auto; padding: 24px 16px 96px; }
+    .hero { padding: 40px 0 16px; }
+    h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.15; margin: 0 0 12px; }
+    .lead { color: var(--muted); font-size: 18px; max-width: 640px; margin: 0 0 24px; }
+    .btn {
+      border: 0; border-radius: 10px; padding: 12px 18px; background: var(--accent); color: #fff;
+      font: inherit; font-weight: 600; cursor: pointer;
+    }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 40px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+    .card h3 { margin: 0 0 6px; font-size: 17px; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    h2 { margin: 56px 0 12px; font-size: 24px; }
+    pre {
+      background: #0f1420; color: #d6deeb; border-radius: 12px; padding: 16px; overflow-x: auto;
+      font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .92em; }
+    footer { text-align: center; color: var(--muted); font-size: 14px; padding: 32px 16px; border-top: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Trang web của bạn</div>
+    <nav><a href="#">Trang chủ</a><a href="#">Bài viết</a><a href="#">Liên hệ</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Đây là một trang web mẫu</h1>
+      <p class="lead">
+        Cây thông Noel ASCII nổi lên thành popup ngay trên trang này. Đóng popup rồi thì bấm nút tròn
+        ở góc dưới bên phải, hoặc nút bên dưới, để mở lại.
+      </p>
+      <button class="btn" type="button" onclick="ChristmasTree.open()">Mở cây thông Noel</button>
+    </section>
+
+    <div class="grid">
+      <div class="card"><h3>Chỉ 1 file</h3><p>Mọi thứ nằm trong christmas-tree.js, không cần thư viện hay framework.</p></div>
+      <div class="card"><h3>Không phá giao diện</h3><p>Popup chạy trong Shadow DOM nên CSS của trang và của popup không ảnh hưởng nhau.</p></div>
+      <div class="card"><h3>Nhẹ</h3><p>Chỉ vẽ khi popup đang mở, tối đa 30 khung hình mỗi giây.</p></div>
+    </div>
+
+    <h2>Gắn vào trang của bạn</h2>
+    <p>Chép <code>christmas-tree.js</code> vào repo, rồi thêm dòng này ngay trước <code>&lt;/body&gt;</code>:</p>
+    <pre><code>&lt;script src="christmas-tree.js" defer&gt;&lt;/script&gt;</code></pre>
+    <p>Đổi lời chúc hoặc cách tự mở bằng thuộc tính <code>data-*</code>:</p>
+    <pre><code>&lt;script src="christmas-tree.js" defer
+        data-message="GIÁNG SINH AN LÀNH"
+        data-signature="@ten.cua.ban"
+        data-open="once"&gt;&lt;/script&gt;</code></pre>
+  </main>
+
+  <footer>Demo cho christmas-tree.js</footer>
+
+  <!-- data-open="always" chỉ để demo: popup mở mỗi lần tải trang -->
+  <script src="christmas-tree.js" data-open="always" data-delay="400" defer></script>
+</body>
+</html>
